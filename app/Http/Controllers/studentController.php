@@ -9,7 +9,7 @@ class studentController extends Controller
 {
     public function index()
     {
-    	$students = student::all();
+        $students = student::all();
 
         return view('welcome', compact('students'));
     }
@@ -23,34 +23,34 @@ class studentController extends Controller
 
 
     {
-    	//$request->all();
+        //$request->all();
 
-    	$this->validate($request,[
-    		'firstname'=>'required',
-    		'lastname'=>'required',
-    		'email'=>'required',
-    		'phone'=>'required',
-    	]);
+        $this->validate($request,[
+            'firstname'=>'required',
+            'lastname'=>'required',
+            'email'=>'required',
+            'phone'=>'required',
+        ]);
 
-    	$student = new student;
+        $student = new Student;
 
-    	$student->first_name = $request->firstname;
-    	$student->last_name = $request->lastname;
-    	$student->email = $request->email;
-    	$student->phone = $request->phone;
-    	
+        $student->first_name = $request->firstname;
+        $student->last_name = $request->lastname;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+        
 
-    	$student->save();
+        $student->save();
 
-    	return redirect(route('home'))->with('msg','successfully added');
+        return redirect(route('home'))->with('msg','successfully added');
 
 
     }
 
     public function edit($id)
     {
-    	$student = student::find($id);
-    	return view('edit', compact('student'));
+        $student = Student::find($id);
+        return view('edit', compact('student'));
     }
 
     public function update(Request $request,$id)
@@ -58,31 +58,31 @@ class studentController extends Controller
 
     {
 
-    	$this->validate($request,[
-    		'firstname'=>'required',
-    		'lastname'=>'required',
-    		'email'=>'required',
-    		'phone'=>'required',
-    	]);
+        $this->validate($request,[
+            'firstname'=>'required',
+            'lastname'=>'required',
+            'email'=>'required',
+            'phone'=>'required',
+        ]);
 
-    	$student = student::find($id);
+        $student = Student::find($id);
 
-    	$student->first_name = $request->firstname;
-    	$student->last_name = $request->lastname;
-    	$student->email = $request->email;
-    	$student->phone = $request->phone;
-    	
+        $student->first_name = $request->firstname;
+        $student->last_name = $request->lastname;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+        
 
-    	$student->save();
+        $student->save();
 
-    	return redirect(route('home'))->with('msg','successfully updated');
+        return redirect(route('home'))->with('msg','successfully updated');
     }
 
     public function delete($id)
     {
-    	student::find($id)->delete();
+        Student::find($id)->delete();
 
-    	return redirect(route('home'))->with('msg','successfully deleted');
+        return redirect(route('home'))->with('msg','successfully deleted');
     }
 
 }

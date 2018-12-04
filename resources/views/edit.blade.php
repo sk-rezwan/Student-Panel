@@ -4,21 +4,21 @@
 
 <div class="container">
 
-	@if($errors->any())
-		@foreach($errors->all() as $error)
-			<div class="alert alert-danger">
-  			<strong>Error!</strong> {{ $error }}
-			</div>
-		@endforeach
-	@endif
-	<div class="panel panel-default" style="padding: 0px;">
-		<div class="panel-heading" style="padding: 2px;">
-			<h3 class="panel-title" style="text-align: center;">Add New Student</h3>
-		</div>
-		<div class="panel-body">
-			 <div class="row">
+  @if($errors->any())
+    @foreach($errors->all() as $error)
+      <div class="alert alert-danger">
+        <strong>Error!</strong> {{ $error }}
+      </div>
+    @endforeach
+  @endif
+  <div class="panel panel-default" style="padding: 0px;">
+    <div class="panel-heading" style="padding: 2px;">
+      <h3 class="panel-title" style="text-align: center;">Add New Student</h3>
+    </div>
+    <div class="panel-body">
+       <div class="row">
     <form class="col s12" method="POST" action="{{route('update', $student->id)}}">
-    	{{csrf_field()}}
+      {{csrf_field()}}
       <div class="row">
         <div class="input-field col s6">
           <input placeholder="Placeholder" id="first_name" name="firstname" type="text" class="validate" value="{{$student->first_name}}">
@@ -52,7 +52,7 @@
 
     </form>
   </div>
-		</div>		
-	</div>
+    </div>    
+  </div>
 </div>
 @endsection
