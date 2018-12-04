@@ -41,7 +41,7 @@
 
         </div>
 
-        <img src="images/{{ Session::get('image') }}" class="responsive-image" style="max-width: 400px; max-height: 450px; ">
+        <img src="images/{{ Session::get('image') }}" class="img-responsive" style="max-width: 400px; max-height: 450px; ">
 
         @endif
 
